@@ -3,7 +3,7 @@
     <h3>{{stock.name}}</h3> - <h4>({{stock.code}})</h4>
   </div>
   <div class="price"
-       [class]="stock.isPositiveChange() ? 'positive' : 'negative'">
+       [ngClass]="stockClasses">
     $ {{stock.price}}
   </div>
   <button (click)="toggleFavourite()"
