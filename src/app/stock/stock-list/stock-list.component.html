@@ -1,0 +1,3 @@
+<span class="stock-container" *ngFor="let stock of stocks; index as i; trackBy: trackStockByCode">
+  <app-stock-item [stock]="stock"></app-stock-item>
+</span>
