@@ -7,7 +7,7 @@
        [class.negative]="!stock.isPositiveChange()">
     $ {{stock.price}}
   </div>
-  <button (click)="toggleFavourite(i)"
+  <button (click)="onToggleFavourite()"
           *ngIf="!stock.favourite">Add to Favourite</button>
   <span *ngIf="stock.favourite">Stock is favourited</span>
 </div>
