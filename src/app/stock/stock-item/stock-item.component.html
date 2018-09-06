@@ -8,5 +8,6 @@
     $ {{stock.price}}
   </div>
   <button (click)="toggleFavourite()"
-          [disabled]="stock.favourite">Add to Favourite</button>
+          *ngIf="!stock.favourite">Add to Favourite</button>
+  <span *ngIf="stock.favourite">Stock is favourited</span>
 </div>
