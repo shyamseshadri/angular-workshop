@@ -7,18 +7,21 @@ import { Stock } from '../../model/stock';
   styleUrls: ['./stock-item.component.css']
 })
 export class StockItemComponent implements OnInit {
-  public stock: Stock;
-  public stockClasses: any;
+  public stocks: Array<Stock>;
 
   constructor() { }
 
   ngOnInit() {
-    this.stock = new Stock('Test Stock Company', 'TSC', 85, 80);
+    this.stocks = [
+      new Stock('Test Stock Company', 'TSC', 85, 80),
+      new Stock('Second Stock Company', 'SSC', 10, 20),
+      new Stock('Last Stock Company', 'LSC', 876, 765)
+    ];
   }
 
-  toggleFavourite() {
-    console.log('We are toggling the favourite status');
-    this.stock.favourite = !this.stock.favourite;
+  toggleFavourite(index) {
+    console.log('We are toggling the favourite status for stock at index', index);
+    this.stocks[index].favourite = !this.stocks[index].favourite;
   }
 
 }
