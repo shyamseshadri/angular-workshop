@@ -13,9 +13,9 @@ export class StockListComponent implements OnInit {
 
   ngOnInit() {
     this.stocks = [
-      new Stock('Test Stock Company', 'TSC', 85, 80),
-      new Stock('Second Stock Company', 'SSC', 10, 20),
-      new Stock('Last Stock Company', 'LSC', 876, 765)
+      new Stock('Test Stock Company', 'TSC', 85, 80, 'NASDAQ'),
+      new Stock('Second Stock Company', 'SSC', 10, 20, 'BSE'),
+      new Stock('Last Stock Company', 'LSC', 876, 765, 'NYSE')
     ];
   }
 

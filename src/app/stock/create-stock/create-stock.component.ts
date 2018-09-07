@@ -10,7 +10,7 @@ export class CreateStockComponent implements OnInit {
 
   public stock: Stock;
   constructor() {
-    this.stock = new Stock('test', '', 0, 0);
+    this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
   }
 
   ngOnInit() { }

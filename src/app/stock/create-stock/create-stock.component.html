@@ -4,11 +4,32 @@
     <div class="stock-name">
       <input type="text"
              placeholder="Stock Name"
-             name="stockName"
-             [ngModel]="stock.name"
-             (ngModelChange)="stock.name=$event">
+             name="stockName">
     </div>
+    <div class="stock-code">
+      <input type="text" placeholder="Stock Code"
+             name="stockCode">
+    </div>
+    <div class="stock-price">
+      <input type="number" placeholder="Stock Price"
+             name="stockPrice">
+    </div>
+    <div class="stock-exchange">
+      <div>
+        <input type="radio" name="stockExchange" value="NYSE">NYSE
+      </div>
+      <div>
+        <input type="radio" name="stockExchange" value="NASDAQ">NASDAQ
+      </div>
+      <div>
+        <input type="radio" name="stockExchange" value="OTHER">OTHER
+      </div>
+    </div>
+    <div class="stock-confirm">
+      <input type="checkbox" name="stockConfirm">
+      I confirm that the information provided above is accurate!
+    </div>
+    <button [disabled]="!confirmed" type="submit">Create</button>
   </form>
-  <button (click)="stock.name='test'">Reset stock name</button>
 </div>
 <h4>Stock Name is {{stock.name}}</h4>
