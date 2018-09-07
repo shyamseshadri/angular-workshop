@@ -1,35 +1,47 @@
 <h2>Create Stock Form</h2>
 <div class="form-group">
-  <form>
+  <form (submit)="createStock()">
     <div class="stock-name">
       <input type="text"
              placeholder="Stock Name"
-             name="stockName">
+             name="stockName"
+             [(ngModel)]="stock.name">
     </div>
     <div class="stock-code">
       <input type="text" placeholder="Stock Code"
-             name="stockCode">
+             name="stockCode"
+             [(ngModel)]="stock.code">
     </div>
     <div class="stock-price">
       <input type="number" placeholder="Stock Price"
-             name="stockPrice">
+             name="stockPrice"
+             [ngModel]="stock.price"
+             (ngModelChange)="onPriceChange($event)">
     </div>
     <div class="stock-exchange">
       <div>
-        <input type="radio" name="stockExchange" value="NYSE">NYSE
+        <input type="radio"
+               name="stockExchange"
+               value="NYSE"
+               [(ngModel)]="stock.exchange">NYSE
       </div>
       <div>
-        <input type="radio" name="stockExchange" value="NASDAQ">NASDAQ
+        <input type="radio"
+               name="stockExchange"
+               value="NASDAQ"
+               [(ngModel)]="stock.exchange">NASDAQ
       </div>
       <div>
-        <input type="radio" name="stockExchange" value="OTHER">OTHER
+        <input type="radio"
+               name="stockExchange"
+               value="OTHER"
+               [(ngModel)]="stock.exchange">OTHER
       </div>
     </div>
     <div class="stock-confirm">
-      <input type="checkbox" name="stockConfirm">
+      <input type="checkbox" name="stockConfirm" [(ngModel)]="confirmed">
       I confirm that the information provided above is accurate!
     </div>
     <button [disabled]="!confirmed" type="submit">Create</button>
   </form>
 </div>
-<h4>Stock Name is {{stock.name}}</h4>
