@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../../model/stock';
+import { StockService } from '../../services/stock.service';
 
 @Component({
   selector: 'app-create-stock',
@@ -10,7 +11,8 @@ export class CreateStockComponent implements OnInit {
 
   public stock: Stock;
   public confirmed:boolean = false;
-  constructor() {
+  public message: string = null;
+  constructor(private stockService: StockService) {
     this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
   }
 
@@ -24,9 +26,13 @@ export class CreateStockComponent implements OnInit {
   createStock(stockForm) {
     console.log('Stock form', stockForm);
     if (stockForm.valid) {
-      console.log('Creating stock ', this.stock);
+      let created = this.stockService.createStock(this.stock);
+      this.message = created ? 'Stock created successfully' : 'Stock already exists!';
+      if (created) {
+        this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
+      }
     } else {
-      console.error('Stock form is in an invalid state');
+      this.message = 'Stock Form is invalid!';
     }
   }
 
