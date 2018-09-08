@@ -21,8 +21,13 @@ export class CreateStockComponent implements OnInit {
     this.stock.previousPrice = newPrice;
   }
 
-  createStock() {
-    console.log('Stock being created with', this.stock);
+  createStock(stockForm) {
+    console.log('Stock form', stockForm);
+    if (stockForm.valid) {
+      console.log('Creating stock ', this.stock);
+    } else {
+      console.error('Stock form is in an invalid state');
+    }
   }
 
 }
