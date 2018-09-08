@@ -7,10 +7,12 @@ import { StockListComponent } from './stock/stock-list/stock-list.component';
 import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'stocks/list', component: StockListComponent },
   { path: 'stocks/create', component: CreateStockComponent },
+  { path: '**', redirectTo: '/register' },
 ];
 
 @NgModule({
