@@ -14,6 +14,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
 import { AppRoutesModule } from './/app-routes.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AppRoutesModule } from './/app-routes.module';
     StockService,
     UserService,
     UserStoreService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
