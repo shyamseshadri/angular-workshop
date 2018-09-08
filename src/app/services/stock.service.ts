@@ -15,6 +15,10 @@ export class StockService {
     return this.http.get<Stock[]>('/api/stock');
   }
 
+  getStock(code: string): Observable<Stock> {
+    return this.http.get<Stock>('/api/stock/' + code);
+  }
+
   createStock(stock: Stock): Observable<any> {
     return this.http.post('/api/stock', stock);
   }
