@@ -20,9 +20,4 @@ export class StockListComponent implements OnInit {
   trackStockByCode(index, stock) {
     return stock.code;
   }
-
-  whenFavouriteToggled(stock: Stock) {
-    console.log('Favorite for stock ', stock, ' was triggered');
-    this.stockService.toggleFavorite(stock);
-  }
 }

@@ -12,11 +12,22 @@ export class CreateStockComponent implements OnInit {
   public stock: Stock;
   public confirmed:boolean = false;
   public message: string = null;
-  constructor(private stockService: StockService) {
-    this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
-  }
+  constructor(private stockService: StockService) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.initializeStock();
+   }
+
+  initializeStock() {
+    this.stock = {
+      name: '',
+      code: '',
+      price: 0,
+      previousPrice: 0,
+      exchange: 'NASDAQ',
+      favourite: false
+    };
+  }
 
   onPriceChange(newPrice) {
     this.stock.price = newPrice;
@@ -28,7 +39,7 @@ export class CreateStockComponent implements OnInit {
     if (stockForm.valid) {
       this.stockService.createStock(this.stock)
         .subscribe((resp) => {
-          this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
+          this.initializeStock();
           this.message = resp.msg;
         }, (err) => {
           this.message = err.msg;
