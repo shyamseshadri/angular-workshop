@@ -26,11 +26,13 @@ export class CreateStockComponent implements OnInit {
   createStock(stockForm) {
     console.log('Stock form', stockForm);
     if (stockForm.valid) {
-      let created = this.stockService.createStock(this.stock);
-      this.message = created ? 'Stock created successfully' : 'Stock already exists!';
-      if (created) {
-        this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
-      }
+      this.stockService.createStock(this.stock)
+        .subscribe((resp) => {
+          this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
+          this.message = resp.msg;
+        }, (err) => {
+          this.message = err.msg;
+        });
     } else {
       this.message = 'Stock Form is invalid!';
     }
