@@ -13,6 +13,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
+import { AppRoutesModule } from './/app-routes.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UserStoreService } from './services/user-store.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    AppRoutesModule,
   ],
   providers: [
     StockService,
