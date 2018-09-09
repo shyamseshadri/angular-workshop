@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateStockComponent } from './create-stock.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { StockService } from '../../services/stock.service';
 
 describe('CreateStockComponent', () => {
   let component: CreateStockComponent;
@@ -8,7 +11,9 @@ describe('CreateStockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateStockComponent ]
+      declarations: [ CreateStockComponent ],
+      imports: [ FormsModule, HttpClientModule ],
+      providers: [StockService]
     })
     .compileComponents();
   }));

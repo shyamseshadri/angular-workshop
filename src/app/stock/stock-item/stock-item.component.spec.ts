@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StockItemComponent } from './stock-item.component';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { StockService } from '../../services/stock.service';
 
 describe('StockItemComponent', () => {
   let component: StockItemComponent;
@@ -8,7 +12,9 @@ describe('StockItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StockItemComponent ]
+      declarations: [ StockItemComponent ],
+      providers: [StockService],
+      imports: [RouterModule, RouterTestingModule, HttpClientModule]
     })
     .compileComponents();
   }));

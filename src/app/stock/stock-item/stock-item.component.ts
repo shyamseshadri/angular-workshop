@@ -14,6 +14,10 @@ export class StockItemComponent implements OnInit {
 
   ngOnInit() { }
 
+  isPositiveChange() {
+    return this.stock ? this.stock.price > this.stock.previousPrice : false;
+  }
+
   onToggleFavourite() {
     this.stockService.toggleFavorite(this.stock)
       .subscribe((stock) => {
