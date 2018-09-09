@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { StockItemComponent } from './stock/stock-item/stock-item.component';
@@ -15,6 +15,7 @@ import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
 import { AppRoutesModule } from './/app-routes.module';
 import { AuthGuard } from './guards/auth.guard';
+import { StockAppInterceptor } from './services/stock-app.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,12 @@ import { AuthGuard } from './guards/auth.guard';
     StockService,
     UserService,
     UserStoreService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: StockAppInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })
