@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { Stock } from '../../model/stock';
 import { StockService } from '../../services/stock.service';
 
 @Component({
   selector: 'app-stock-item',
   templateUrl: './stock-item.component.html',
-  styleUrls: ['./stock-item.component.css']
+  styleUrls: ['./stock-item.component.css'],
+  encapsulation: ViewEncapsulation.Native,
 })
 export class StockItemComponent implements OnInit {
   @Input() public stock: Stock;
